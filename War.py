@@ -2,10 +2,7 @@ from random import shuffle
 
 class War:
 
-    playerTemp = []
-    opponentTemp = []
     
-
 
     def createDeck():
         totalDeck = []
@@ -33,14 +30,27 @@ class War:
             playerDeck.append(totalDeck.pop())
             opponentDeck.append(totalDeck.pop())
 
-        print(playerDeck)
-        return playerDeck
-        return opponentDeck
+        return playerDeck, opponentDeck;
 
-    
+    playerDeck, opponentDeck = createDeck()
 
+    def doWar(list1, list2):
+        playerTemp = []
+        opponentTemp = []
 
-    createDeck()
+        while(len(list1) != 0 or len(list2) != 0):
+            pCard = list1.pop()
+            oCard = list2.pop()
+            print(pCard)
+            print(oCard)
+            if(pCard > oCard):
+                #Main Algorithm
+                pass
+        
+
+    doWar(playerDeck, opponentDeck)
+        
+
 
 
 
