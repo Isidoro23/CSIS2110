@@ -2,8 +2,15 @@ from random import shuffle
 
 class War:
 
+    playerTemp = []
+    opponentTemp = []
+    
+
+
     def createDeck():
         totalDeck = []
+        playerDeck = []
+        opponentDeck = []
         for x in range(4):
             totalDeck.append(1)
             totalDeck.append(2)
@@ -22,17 +29,24 @@ class War:
         for x in range(3):
             shuffle(totalDeck)
 
-        print(totalDeck)
+        while(len(totalDeck) != 0):
+            playerDeck.append(totalDeck.pop())
+            opponentDeck.append(totalDeck.pop())
+
+        print(playerDeck)
+        return playerDeck
+        return opponentDeck
+
+    
+
 
     createDeck()
 
 
+
         
 
-    playerTemp = []
-    opponentTemp = []
-    playerDeck = []
-    opponentDeck = []
+    
 
 
 
