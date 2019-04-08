@@ -1,3 +1,9 @@
+# War.py
+# Automates the card game War between a player and Computer
+# Authors: Sam Isidoro, Jared Savino, Meghan McGowan, and Fred Smith
+# Date: April 8th 2019
+
+
 from random import shuffle
 
 class War:
@@ -45,6 +51,8 @@ class War:
 
         # Continuously runs until the players deck is 0 or 52
         while(len(list1) != 0 or len(list1) != 52):
+            if(len(list1) == 0 or len(list1) == 52): # Statement was necessary to break out of while loop once someone had won 
+                break
             shuffle(list1) #Shuffles deck
             shuffle(list2) #Shuffles deck
             pCard = list1.pop() #Pops card out of players deck
@@ -64,8 +72,7 @@ class War:
                     playerTemp.clear()
                     opponentTemp.clear()
                     i = 0
-                print("Player wins!")
-                print("List 1 size: ", + len(list1), "\n")
+                print("Player wins!\n")
                 
             # If the opponents card is greater than the players, It will add it to their deck
             # and also add any cards from the equals temporary list     
@@ -79,8 +86,7 @@ class War:
                     playerTemp.clear()
                     opponentTemp.clear()
                     i = 0
-                print("Opponent wins!")
-                print("List 2 size: ", + len(list2), "\n")
+                print("Opponent wins!\n")
 
             # If both cards are equal, they are stored in a temporary list until someone wins                          
             elif(pCard == oCard):
@@ -91,10 +97,10 @@ class War:
 
         # Prints Victory / Defeat
         if(len(list2) == 0):
-            print("You have won the game of war!!")
+            print("You have won the game of War!!")
         else:
-            print("You have lost the game of war")
-        
+            print("You have lost the game of War")
+     
     # Performs the method
     if __name__ == "__main__" :
 
