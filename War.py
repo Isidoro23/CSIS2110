@@ -35,8 +35,7 @@ class War:
 
         return playerDeck, opponentDeck;
 
-    # Returns decks outside of method
-    playerDeck, opponentDeck = createDeck()
+    
 
     # Method used to play the game
     def doWar(list1, list2):
@@ -97,7 +96,13 @@ class War:
             print("You have lost the game of war")
         
     # Performs the method
-    doWar(playerDeck, opponentDeck)
+    if __name__ == "__main__" :
+
+        # Returns decks outside of method
+        playerDeck, opponentDeck = createDeck()
+
+        # Performs the method
+        doWar(playerDeck, opponentDeck)
         
 
 
