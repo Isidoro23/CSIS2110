@@ -5,6 +5,7 @@
 
 
 from random import shuffle
+import turtle
 
 class War:
 
@@ -40,8 +41,7 @@ class War:
             opponentDeck.append(totalDeck.pop())
 
         return playerDeck, opponentDeck;
-
-    
+  
 
     # Method used to play the game
     def doWar(list1, list2):
@@ -51,7 +51,7 @@ class War:
 
         # Continuously runs until the players deck is 0 or 52
         while(len(list1) != 0 or len(list1) != 52):
-            if(len(list1) == 0 or len(list1) == 52): # Statement was necessary to break out of while loop once someone had won 
+            if(len(list1) == 0 or len(list2) == 0): # Statement was necessary to break out of while loop once someone had won 
                 break
             shuffle(list1) #Shuffles deck
             shuffle(list2) #Shuffles deck
@@ -95,11 +95,76 @@ class War:
                 i = i + 1
                 print("Tie!\n")
 
+        return len(list2)
+
+    def results(list1):
         # Prints Victory / Defeat
-        if(len(list2) == 0):
+        if(list1 == 0):
             print("You have won the game of War!!")
+            window = turtle.Screen()
+            window.bgcolor("blue") #background color
+            tom = turtle.Turtle()
+            tom.color("yellow")
+            tom.begin_fill()
+            tom.forward(100) 
+            tom.left(120)
+            tom.forward(100)
+            tom.left(120)
+            tom.forward(100)
+            tom.right(120)
+            tom.forward(100)
+            tom.left(120)
+            tom.forward(100)
+            tom.left(120)
+            tom.forward(100)
+            tom.left(120)
+            tom.forward(100)
+            tom.right(120)
+            tom.forward(100)
+            tom.left(120)
+            tom.forward(100)
+            tom.left(120)
+            tom.forward(100)
+            tom.end_fill()
+            turtle.write("You have won!", font=("Arial", 16, "normal"))
+
+            window.exitonclick() #to exit
+            
         else:
             print("You have lost the game of War")
+            window = turtle.Screen()
+            window.bgcolor("gray") #background color
+            tom = turtle.Turtle()
+            tom.color("black")
+            tom.begin_fill()
+            tom.forward(100) 
+            tom.right(120) 
+            tom.forward(100)
+            tom.right(120)
+            tom.forward(100)
+            tom.left(120) 
+            tom.forward(100)
+            tom.right(120)
+            tom.forward(100)
+            tom.right(120)
+            tom.forward(100)
+            tom.right(120)
+            tom.forward(100)
+            tom.left(120) 
+            tom.forward(100)
+            tom.right(120)
+            tom.forward(100)
+            tom.right(120)
+            tom.forward(100)
+            tom.end_fill()
+            turtle.write("You have lost!", font=("Arial", 16, "normal"))
+            
+            window.exitonclick() #to exit 
+            
+
+
+   
+            
      
     # Performs the method
     if __name__ == "__main__" :
@@ -108,8 +173,10 @@ class War:
         playerDeck, opponentDeck = createDeck()
 
         # Performs the method
-        doWar(playerDeck, opponentDeck)
-        
+        result = doWar(playerDeck, opponentDeck)
+    
+
+        results(result)
 
 
 
